@@ -1,0 +1,5 @@
+docker build -t hike-app .
+docker network create hike-rede
+docker volume create hike-volume
+docker tag hike-app zecada/hike-app
+docker run --name hike-container -v hike-volume:/app -p 8090:8090 --network hike-rede hike-app
